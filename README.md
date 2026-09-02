@@ -78,8 +78,9 @@ ffmpeg -y -f lavfi -i "color=black:size=2x2:rate=5:duration=5" \
 
 ```
 server.js           Node HTTP server: RSS→Ollama pipeline, weather proxy, static files
-config.json         Ports, Ollama URL/model, location, feeds
+config.json         Ports, Ollama URL/model, location, feeds (copy config.json.example)
 public/index.html   Dashboard markup
 public/style.css    Light/dark theme, responsive iPad layout
 public/app.js       Clock, theme toggle, data fetching, keepalive
-public/keepalive.mp4  2×2px black 5s loop video
+public/keepalive.mp4 2×2px black 5s loop video
+LICENSE              The software license terms  
