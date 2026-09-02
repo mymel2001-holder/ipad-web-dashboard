@@ -13,8 +13,15 @@
     "feeds": [
       "https://feeds.bbci.co.uk/news/world/rss.xml",
       "https://www.theguardian.com/world/rss",
+      "https://feeds.a.dj.com/rss/RSSWorldNews.xml",
+      "https://feeds.nbcnews.com/nbcnews/public/news",
       "https://feeds.npr.org/1001/rss.xml",
-      "https://www.goodnewsnetwork.org/feed/"
+      "https://abcnews.go.com/abcnews/topstories",
+      "https://www.cbsnews.com/latest/rss/us",
+      "https://lwn.net/headlines/newrss",
+      "http://rss.slashdot.org/Slashdot/slashdotMain",
+      "https://www.cbsnews.com/latest/rss/technology",
+      "https://www.theverge.com/rss/index.xml"
     ],
     "maxItems": 18,
     "classifyPool": 36,
