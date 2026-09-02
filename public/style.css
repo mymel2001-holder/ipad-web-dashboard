@@ -1,0 +1,229 @@
+/* iPad Web Dashboard styles — light/dark via [data-theme] on <html> */
+
+:root {
+  --bg: #f2f4f8;
+  --bg-accent: #e4e8f0;
+  --card: rgba(255, 255, 255, 0.85);
+  --text: #1a1d24;
+  --text-dim: #5b6472;
+  --accent: #2f6fed;
+  --good: #1a8f4b;
+  --border: rgba(20, 30, 50, 0.1);
+  --shadow: 0 8px 30px rgba(20, 30, 60, 0.12);
+  --skeleton: rgba(20, 30, 60, 0.08);
+}
+
+html[data-theme='dark'] {
+  --bg: #0e1117;
+  --bg-accent: #161b26;
+  --card: rgba(28, 33, 46, 0.85);
+  --text: #e8ecf4;
+  --text-dim: #9aa4b5;
+  --accent: #6d9bff;
+  --good: #46d17e;
+  --border: rgba(255, 255, 255, 0.09);
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+  --skeleton: rgba(255, 255, 255, 0.07);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  background:
+    radial-gradient(1200px 600px at 15% -10%, var(--bg-accent), transparent 60%),
+    radial-gradient(1000px 500px at 110% 110%, var(--bg-accent), transparent 60%),
+    var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.4s ease, color 0.4s ease;
+  overscroll-behavior: none;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  position: fixed;
+  top: calc(env(safe-area-inset-top, 0px) + 14px);
+  right: calc(env(safe-area-inset-right, 0px) + 14px);
+  z-index: 10;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease;
+}
+.theme-toggle:active { transform: scale(0.9); }
+
+/* Layout */
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: calc(env(safe-area-inset-top, 0px) + 24px)
+           calc(env(safe-area-inset-right, 0px) + 20px)
+           calc(env(safe-area-inset-bottom, 0px) + 24px)
+           calc(env(safe-area-inset-left, 0px) + 20px);
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 22px 26px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--shadow);
+}
+
+/* Clock */
+.clock-card { text-align: center; padding: 30px 20px; }
+
+.clock-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 10px;
+}
+
+.clock-time {
+  font-size: clamp(56px, 12vw, 96px);
+  font-weight: 700;
+  letter-spacing: -1px;
+  font-variant-numeric: tabular-nums;
+}
+
+.clock-meridiem {
+  font-size: clamp(20px, 4vw, 32px);
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.clock-date {
+  margin-top: 6px;
+  font-size: clamp(18px, 4vw, 26px);
+  font-weight: 500;
+  color: var(--text-dim);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Weather */
+.weather-body { display: flex; align-items: center; gap: 22px; }
+.weather-body.loading { opacity: 0.6; }
+
+.weather-main { display: flex; align-items: center; gap: 12px; }
+
+.weather-icon { font-size: 58px; line-height: 1; }
+
+.weather-temp {
+  font-size: clamp(44px, 9vw, 72px);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.weather-details { display: flex; flex-direction: column; gap: 4px; }
+
+.weather-desc { font-size: 21px; font-weight: 600; }
+
+.weather-meta { font-size: 16px; color: var(--text-dim); }
+.weather-meta .sep { margin: 0 8px; opacity: 0.5; }
+.weather-meta .hi { color: var(--good); font-weight: 600; }
+
+/* News */
+.news-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.news-title { font-size: 22px; font-weight: 700; }
+
+.news-status {
+  font-size: 13px;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+.news-status.off { color: #d9534f; font-weight: 600; }
+
+.news-list { list-style: none; display: flex; flex-direction: column; }
+
+.news-item {
+  padding: 13px 2px;
+  border-bottom: 1px solid var(--border);
+  line-height: 1.45;
+}
+.news-item:last-child { border-bottom: none; }
+
+.news-item a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 500;
+}
+.news-item a:active { color: var(--accent); }
+
+.news-item .source {
+  display: block;
+  margin-top: 3px;
+  font-size: 12.5px;
+  color: var(--text-dim);
+  letter-spacing: 0.4px;
+}
+
+.news-empty { color: var(--text-dim); font-size: 16px; padding: 12px 2px; }
+
+/* Skeleton loading rows */
+.news-item.skeleton { padding: 16px 2px; }
+.skeleton-line {
+  display: block;
+  height: 14px;
+  border-radius: 7px;
+  background: var(--skeleton);
+  animation: pulse 1.4s ease-in-out infinite;
+}
+.skeleton-line::after { content: ''; }
+.news-item.skeleton:nth-child(2) .skeleton-line { width: 80%; }
+.news-item.skeleton:nth-child(3) .skeleton-line { width: 62%; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+
+/* Keepalive video: 2x2 px, invisible but playing */
+#keepalive {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 2px;
+  opacity: 0.01;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Landscape tablets (iPad): clock + weather side by side */
+@media (min-width: 700px) and (orientation: landscape) {
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 'clock weather' 'news news';
+    align-items: stretch;
+  }
+  .clock-card { grid-area: clock; display: flex; flex-direction: column; justify-content: center; }
+  .weather-card { grid-area: weather; display: flex; align-items: center; }
+  .weather-body { width: 100%; }
+  .news-card { grid-area: news; }
+}

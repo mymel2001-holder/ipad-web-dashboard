@@ -1,0 +1,5 @@
+iPad dashboard running at http://localhost:3000
+  Weather location : Chicago (41.8781, -87.6298)
+  Ollama           : http://100.118.11.83:11434 (model: ministral-3:3b)
+  RSS feeds        : 4
+[news] refreshed: 7 good items (filter active) in 14678ms

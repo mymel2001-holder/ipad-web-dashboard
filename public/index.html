@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Dashboard">
+  <meta name="color-scheme" content="light dark">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle light/dark mode" title="Toggle light/dark mode">🌙</button>
+
+  <main class="layout">
+    <!-- Clock -->
+    <section class="card clock-card" aria-label="Clock">
+      <div class="clock-row">
+        <span id="clockTime" class="clock-time">--:--:--</span>
+        <span id="clockMeridiem" class="clock-meridiem">&nbsp;</span>
+      </div>
+      <div id="clockDate" class="clock-date">--/--/----</div>
+    </section>
+
+    <!-- Weather -->
+    <section class="card weather-card" aria-label="Weather">
+      <div id="weatherBody" class="weather-body loading">
+        <div class="weather-main">
+          <span id="weatherIcon" class="weather-icon">⏳</span>
+          <span id="weatherTemp" class="weather-temp">--°</span>
+        </div>
+        <div class="weather-details">
+          <div id="weatherDesc" class="weather-desc">Loading weather…</div>
+          <div id="weatherMeta" class="weather-meta"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- News -->
+    <section class="card news-card" aria-label="Good news">
+      <div class="news-header">
+        <h2 class="news-title">☀️ Good News</h2>
+        <span id="newsStatus" class="news-status">Loading…</span>
+      </div>
+      <ul id="newsList" class="news-list">
+        <li class="news-item skeleton"><span class="skeleton-line"></span></li>
+        <li class="news-item skeleton"><span class="skeleton-line"></span></li>
+        <li class="news-item skeleton"><span class="skeleton-line"></span></li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- 2x2px black looping video keeps the iPad screen awake -->
+  <video id="keepalive" autoplay muted loop playsinline webkit-playsinline preload="auto" src="keepalive.mp4" aria-hidden="true"></video>
+
+  <script src="app.js"></script>
+</body>
+</html>

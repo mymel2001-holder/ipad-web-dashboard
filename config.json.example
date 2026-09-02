@@ -1,0 +1,24 @@
+{
+  "port": 3000,
+  "ollama": {
+    "baseUrl": "http://100.118.11.83:11434",
+    "model": "ministral-3:3b"
+  },
+  "weather": {
+    "latitude": 41.8781,
+    "longitude": -87.6298,
+    "city": "Chicago"
+  },
+  "news": {
+    "feeds": [
+      "https://feeds.bbci.co.uk/news/world/rss.xml",
+      "https://www.theguardian.com/world/rss",
+      "https://feeds.npr.org/1001/rss.xml",
+      "https://www.goodnewsnetwork.org/feed/"
+    ],
+    "maxItems": 18,
+    "classifyPool": 36,
+    "batchSize": 12,
+    "cacheTtlMinutes": 30
+  }
+}
