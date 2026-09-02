@@ -1,0 +1,1 @@
+node "$(dirname $0)/server.js" >> "$(dirname $0)/server.log" 2>&1 &
